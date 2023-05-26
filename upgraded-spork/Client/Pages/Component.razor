@@ -1,0 +1,38 @@
+﻿@page "/server"
+
+<PageTitle>Weather forecast</PageTitle>
+
+<MudText Typo="Typo.h3" GutterBottom="true">Server UI Mockup</MudText>
+<MudText Class="mb-8">This component is a prototype that will be templated to allow for process management.</MudText>
+
+@*
+    Things to note:
+    Each server page will need a settings page with all of the configuration for each server
+    On the main page, we need to be able to view information on the running proces. 
+    Such as:
+     - stdout
+     - Status
+    We need to be able to perform the following interactions:
+     - Start
+     - Stop
+     - Restart
+     - Status (poll, both for status on linux and for proc.poll)
+     - Send a command via stdin
+*@
+
+@*Container to template*@
+<MudPaper>
+    <MudTextField 
+        T="string" 
+        Label="stdout" 
+        Variant="Variant.Outlined" 
+        Text="@sampleText" 
+        Lines="25" />
+
+
+</MudPaper>
+
+@code {
+    string sampleText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+
+}
