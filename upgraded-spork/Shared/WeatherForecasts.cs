@@ -1,6 +1,6 @@
 ﻿namespace upgraded_spork.Shared
 {
-    public class WeatherForecast
+    public class WeatherForecasts
     {
         public DateTime Date { get; set; }
 
