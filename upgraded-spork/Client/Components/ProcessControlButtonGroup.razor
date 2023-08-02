@@ -1,0 +1,32 @@
+﻿<h3>ProcessControlButtonGroup Debug Information</h3>
+<MudText>Is Process Running?: @ProcessRunning</MudText>
+
+<div style="display: flex; flex-direction: row; align-items: center;">
+<MudButtonGroup OverrideStyles="false">
+    <MudButton Color="Color.Success" Variant="Variant.Filled">
+        Start
+    </MudButton>
+    <MudButton Color="Color.Secondary" Variant="Variant.Filled">
+        Stop
+    </MudButton>
+    <MudButton Color="Color.Warning" Variant="Variant.Filled">
+        Restart
+    </MudButton>
+</MudButtonGroup>
+</div>
+
+@code {
+    [Parameter]
+    public bool ProcessRunning { get; set; } = false;
+
+    [Parameter]
+    public EventCallback StartButtonPressed { get; set; }
+
+    [Parameter]
+    public EventCallback StopButtonPressed { get; set; }
+
+    [Parameter]
+    public EventCallback RestartButtonPressed { get; set; }
+    
+    private bool _overrideStyles;
+}

@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "upgraded-spork.Server", "up
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "upgraded-spork.Shared", "upgraded-spork\Shared\upgraded-spork.Shared.csproj", "{F5A76C62-0D26-4137-9657-9684DC02F8C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventDrivenConsole", "EventDrivenConsole\EventDrivenConsole.csproj", "{783E9ACB-14F1-480F-A9E8-BEAABDCA7AFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventDrivenConsole", "EventDrivenConsole\EventDrivenConsole.csproj", "{783E9ACB-14F1-480F-A9E8-BEAABDCA7AFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

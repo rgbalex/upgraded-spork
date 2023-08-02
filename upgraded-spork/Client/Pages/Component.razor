@@ -1,9 +1,12 @@
 ﻿@page "/server"
 
-<PageTitle>Weather forecast</PageTitle>
+
+@using Microsoft.JSInterop
+@using upgraded_spork.Client.Components
+
+<PageTitle>Control Panel</PageTitle>
 
 <MudText Typo="Typo.h3" GutterBottom="true">Server UI Mockup</MudText>
-<MudText Class="mb-8">This component is a prototype that will be templated to allow for process management.</MudText>
 
 @*
     Things to note:
@@ -21,18 +24,26 @@
 *@
 
 @*Container to template*@
-<MudPaper>
+<MudPaper Elevation="3" Style="padding: 10px;">
     <MudTextField 
         T="string" 
         Label="stdout" 
         Variant="Variant.Outlined" 
         Text="@sampleText" 
-        Lines="25" />
+        Lines="25" 
+        ValueChanged="TextChanged"
+    />
 
+    <textarea 
+        id="logTextArea" 
+        style="width:600px;height:200px;"
+        onchange="">
+        @sampleText
+    </textarea>
 
+    <ProcessControlButtonGroup />
+    
+    <br/>
+
+    <MudButton OnClick="ShowAlertWindow">multiply Text in window</MudButton>
 </MudPaper>
-
-@code {
-    string sampleText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-
-}
