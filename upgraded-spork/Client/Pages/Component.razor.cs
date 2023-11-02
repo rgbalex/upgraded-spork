@@ -19,22 +19,33 @@ public partial class Component
     async Task TextChanged(string text)
     {
         //await _logWindow.SelectRangeAsync(text.Length - 2, text.Length - 1);
+        _ = InvokeAsync(() => ScrollToBottom());
         StateHasChanged();
     }
 
     [Inject]
-    public IJSRuntime JSRuntime { get; set; }
+    public IJSRuntime? JSRuntime { get; set; }
 
-    private IJSObjectReference _jsModule;
+    private IJSObjectReference? _jsModule;
 
     public async Task ShowAlertWindow()
     {
-        await _jsModule.InvokeVoidAsync("showAlert", "JS function called from .NET");
+        if (_jsModule != null)
+            await _jsModule.InvokeVoidAsync("showAlert", "JS function called from .NET");
+    }
+
+    public async Task ScrollToBottom()
+    {
+        if (_jsModule != null)
+            // https://code-maze.com/how-to-call-javascript-code-from-net-blazor-webassembly/
+            //await _jsModule.InvokeVoidAsync("showAlert", "Autoscrolling to bottom...");
+            await _jsModule.InvokeVoidAsync("scrollLogToBottom");
     }
 
     protected override async Task OnInitializedAsync()
     {
-        _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./scripts/ScrollToBottom.js");
+        if (JSRuntime != null)
+            _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./scripts/ScrollToBottom.js");
     }
 }
 

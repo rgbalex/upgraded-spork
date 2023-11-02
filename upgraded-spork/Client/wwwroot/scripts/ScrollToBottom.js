@@ -3,10 +3,12 @@
 //    alert("Sample Text")
 //}
 
-//function scrollLogToBottom() {
-//    logTa = document.getElementById("logTextArea")
-//    logTa.scrollTop = logTa.scrollHeight;
-//}
+export function scrollLogToBottom() {
+    logTa = document.getElementById("logTextArea")
+    //logTa.scrollTop = logTa.scrollHeight;
+    logTa.blur();
+    logTa.focus();
+}
 
 export function showAlert(message) {
     alert(message);
